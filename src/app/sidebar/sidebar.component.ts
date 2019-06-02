@@ -28,7 +28,12 @@ export class SidebarComponent implements OnInit{
         }
         return true;
     }
-
+    /**
+     * Metodo implementado 
+     * para cerrar cesion
+     * 
+     * @author Marcos Manotas
+     */
     logout(){
         this.router.navigate(['']);
 
