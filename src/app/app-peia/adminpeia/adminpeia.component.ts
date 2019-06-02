@@ -85,7 +85,6 @@ export class AdminpeiaComponent implements OnInit {
    */
   saveBono(){
 
-    this.listRegisterBono=[];
     this.ws.saveBono(this.globalValue.userLogin.id,
                     this.cantMoney,
                     this.idStudent).then(data => {
@@ -96,6 +95,11 @@ export class AdminpeiaComponent implements OnInit {
           }).catch(swal.noop);
           return;
       }
+
+      swal({title: '',
+              html: 'Bono regitro exitosamente.',
+              type: "info"
+        });
       this.listRegisterBono=data['data'];
       this.idStudent=null;
       this.cantMoney=null;

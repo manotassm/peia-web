@@ -106,7 +106,11 @@ console.log("lista denominacion >>>>");
           return;
       }
 
-      this.listRegisterMoney=[];
+      swal({title: '',
+              html: 'Dinero cargado exitsamente al cajero.',
+              type: "info"
+        });
+ 
       this.listRegisterMoney=data['data'];
       console.log(data);
       console.log(this.listRegisterMoney);
