@@ -1,49 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicesService  } from "../../app-peia/services/services.service";
+import { GlobalValue } from "../../app-peia/global/globalValue";
 
 declare var $: any;
 declare var swal: any;
 @Component({
   selector: 'StudentComponent',
-  templateUrl: './student.component.html'
+  templateUrl: './student.component.html',
+  providers: [ServicesService]
 })
-
+/**
+ * Componente que contendra la logica 
+ * del modulo de estudiante
+ * 
+ * @author Marco Manotas
+ */
 export class StudentComponent implements OnInit {
 
-  /** Status Fields */
-  public isLoading: boolean;
+  public listBonoStudent:any[]=[];
 
-  /** Filters Fields */
-  public plateFilter: string;
-  public trackingFilter: string;
-  public idQuotationStatusFilter: string;
+  constructor(public ws: ServicesService, private router: Router, private globalValue:GlobalValue) {
 
-  /** Main Fields */
-  quotationList: any[];
+    }
 
-  /** Paginator Fields */
-  public limit: number;
-  public total: number;
-  public current: number;
-
-  constructor(
-    private router: Router) {
-
-    /** Filters Fields */
-    this.plateFilter = "";
-    this.trackingFilter = "";
-    this.idQuotationStatusFilter = "";  
-
-    /** Main Fields */
-    this.quotationList = [];
-
-    /** Paginator Fields */
-    this.limit = 10;
-    this.total = 0;
-
+    /**
+     * Metodo utilizado para inicializar atributos a
+     * utilizar durante el inicio del sistema
+     * 
+     * @authro marcos Manotas
+     */
+  ngOnInit() {
+    this.loadListBonosRegistreByStudent();
   }
 
-  ngOnInit() {
+  /**
+   * Metoo implementado para cargar el
+   * listaddo ded bonos asignados a un 
+   * estudiante
+   * 
+   * @author Marcos Manotas
+   * @since Fecha de creacion 2/Junio /2019
+   */
+  loadListBonosRegistreByStudent(){
+
+    this.listBonoStudent=[];
+    this.ws.getListBondsByIdStudent(this.globalValue.userLogin.id).then(data => {
+      if (!data['success']) {
+          swal({
+              type: "error",
+              title: data['msg']
+          }).catch(swal.noop);
+          return;
+      }
+      this.listBonoStudent=data['data'];
+            
+    });  
     
   }
 

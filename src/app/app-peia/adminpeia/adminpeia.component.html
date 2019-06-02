@@ -84,7 +84,7 @@
 										<tr *ngFor="let row of listRegisterBono">
 											<td>{{row.id}}</td>
 											<td>{{row.idStudent.firstName}} {{row.idStudent.lastName}}</td>
-											<td>{{row.value}}</td>
+											<td>{{row.value | currency}}</td>
 											<td>{{row.creationDate}}</td>
 											
 										</tr>

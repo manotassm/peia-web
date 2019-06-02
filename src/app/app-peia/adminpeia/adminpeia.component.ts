@@ -11,6 +11,12 @@ declare var swal: any;
   providers: [ServicesService]
 })
 
+/**
+ * Compoenetnet implementado para gestionar
+ * el moulo aministrador peia
+ * 
+ * @author Marco Manotas
+ */
 export class AdminpeiaComponent implements OnInit {
 
   private liststudent:any[]=[];

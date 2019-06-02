@@ -10,7 +10,12 @@ declare var swal: any;
   templateUrl: './admin.component.html',
   providers: [ServicesService]
 })
-
+/**
+ * Componente implemmentdo para
+ * getionar el modulo aminitror
+ * 
+ * @author Marco Manotas
+ */
 export class AdminComponent implements OnInit {
 
   private listDenominacion:any[]=[];

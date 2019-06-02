@@ -11,6 +11,7 @@ export const HTTP_SERVICE = {
 
     GET_ALL_STUDENT: SERVICIOURL +"/webresources/adminService/findAllStudent",
     GET_ALL_BONO: SERVICIOURL +"/webresources/adminService/findAllBono",
-    SAVE_BONO: SERVICIOURL +"/webresources/adminService/saveBono"
+    SAVE_BONO: SERVICIOURL +"/webresources/adminService/saveBono",
 
+    GET_ALL_BONO_BY_STUDENT: SERVICIOURL +"/webresources/studentService/getListBondsByIdStudent"
 }
