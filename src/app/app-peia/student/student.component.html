@@ -1,0 +1,95 @@
+<div class="main-content" style="margin-top: 0px !important;">
+	<div class="container-fluid" style="min-height: 80vh;">
+		<div class="header text-left" style="margin-left: 65px;margin-top: 0px;">
+			<h3 class="title">Estudiante</h3>
+			<p class="category">Modulo que permite al usuario visualizar el listado de Cotizaciones creadas.</p>
+		</div>
+		<div style="height: 85vh;margin-top: -25px;">
+			<div class="col-md-12">
+				<div>
+					<button 
+						class="btn  btn-sm btn-info" 
+						(click)="createQuotation()" 
+						style="float: right;padding-left: 5px;padding-right: 5px;"
+					 	title="Crear Nueva Cotización" *ngIf="loginService.getUser().listRoles[0].id != 6">
+						<i class="material-icons">add</i> Nueva Cotización
+					</button>
+					<button 
+						class="btn  btn-sm btn-info" 
+						(click)="search()" 
+						style="float: right;padding-left: 5px;padding-right: 5px;"
+					 	title="Crear Nueva Cotización">
+						<i class="material-icons">cached</i> Actualizar
+					</button>
+				</div>
+				<div class="card" style="min-height: 400px;margin-top: -5px;">
+					<div class="card-content" style="min-height: 350px;">
+						<div *ngIf="isLoading">
+							<div class="loader">
+								<p style="margin-top: 50px;">Cargando...</p>
+								<svg class="circular" viewBox="25 25 50 50">
+									<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+								</svg>
+							</div>
+						</div>
+						<div *ngIf="isLoading == false">
+							<div class="table-responsive" style="max-height: 60vh;">
+								<table class="table table-striped" style="font-size: 12px;">
+									<thead class="text-FP">
+										<tr>
+											<th>#.
+												<div style="height: 46px;"></div>
+											</th>
+											<th>
+												Consecutivo
+												<input 
+													type="text"
+													class="form-control" 
+													style="margin-top: -20px;" 
+													/>
+												</th>
+											<th>
+												Placa
+												<input 
+												type="text"
+												class="form-control" 
+												style="margin-top: -20px;" 
+												/>
+											</th>
+											<th>
+												Fecha Cotización
+												<div style="height: 46px;"></div>
+											</th>
+											<th>
+												Estado
+												<div style="height: 46px;"></div>
+											</th>
+											<th>
+												<div style="height: 46px;"></div>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of quotationList; 
+                                let i = index;">
+											<td>{{i + 1}}.</td>
+											<td>{{item.quotation.vehicleAnalisys.trackingNumber}}</td>
+											<td>{{item.quotation.vehicleAnalisys.vehiclePlate}}</td>
+											<td>{{item.quotation.creationDate | date:'short'}}</td>
+											<td>{{item.quotation.quotationStatus}}</td>
+											<td>
+												<button style="margin-bottom: 0px; margin-top: 0px;" class="btn btn-xs btn-info" (click)="detail(item)">
+													<i class="material-icons">search</i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

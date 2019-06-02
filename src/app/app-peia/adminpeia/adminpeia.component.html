@@ -1,0 +1,104 @@
+<div class="main-content" style="margin-top: 0px !important;">
+	<div class="container-fluid" style="min-height: 80vh;">
+		<div class="header text-left" style="margin-left: 65px;margin-top: 0px;">
+			<h3 class="title">Bonos De Estudiantes</h3>
+			<p class="category">A continuacion usted podra ingresar los bonos a los estudiantes de la institucion.</p>
+		</div>
+		<div style="height: 85vh;margin-top: -25px;">
+			<div class="col-md-12">
+				
+				<!--Seccion registro de billetes -->
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header card-header-icon" data-background-color="rose">
+								<i class="material-icons">contacts</i>
+							</div>
+							<div class="card-content">
+								<h4 class="card-title">Registro de Bono</h4>
+								<form class="form-horizontal">
+									<div class="row">
+										<label class="col-md-3 label-on-left">Estudiante</label>
+										<div class="col-md-9">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label"></label>
+												<!-- <input type="text" class="form-control"> -->
+												
+												<select name="idTck" 
+                                                    id="idTck"
+                                                    class="form-control"
+                                                    [(ngModel)]="idStudent">
+                                                <option *ngFor="let iter of liststudent" 
+                                                        [value]="iter.id">{{iter.firstName}} {{iter.lastName}}</option>    
+                                            </select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<label class="col-md-3 label-on-left">Cantidad</label>
+										<div class="col-md-9">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label"></label>
+												<input type="number" class="form-control"
+													   name="cantMoney"
+													   [(ngModel)]="cantMoney">
+											</div>
+										</div>
+									</div>
+
+									
+
+									<div class="row">
+										<label class="col-md-3"></label>
+										<div class="col-md-9">
+											<div class="form-group form-button">
+												<button class="btn btn-danger" (click)="cancelBono()">Cancelar</button>
+												<button class="btn btn-success" (click)="saveBono()">Registrar</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+
+				<!-- Seccion tabla de bonos registrados -->
+
+					<div class="card">
+						<div class="card-header card-header-icon" data-background-color="rose">
+							<i class="material-icons">assignment</i>
+						</div>
+						<div class="card-content">
+							<h4 class="card-title">Listado de Bonos Registrados A Estudiantes</h4>
+							<div class="content table-responsive">
+							  <table class="table">
+									  <thead class="text-primary">
+										  <tr>
+											<th>Codigo Bono</th>
+											<th >Estudiante</th>
+											<th>Cantidad Bono</th>
+											<th>Fecha Creación</th>
+										  </tr>
+									  </thead>
+									<tbody>
+										<tr *ngFor="let row of listRegisterBono">
+											<td>{{row.id}}</td>
+											<td>{{row.idStudent.firstName}} {{row.idStudent.lastName}}</td>
+											<td>{{row.value}}</td>
+											<td>{{row.creationDate}}</td>
+											
+										</tr>
+									</tbody>
+							  </table>
+	
+							</div>
+						</div>
+					</div>
+
+
+
+					
+			</div>
+		</div>
+	</div>
+</div>

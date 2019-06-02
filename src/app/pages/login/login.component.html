@@ -1,0 +1,86 @@
+<div class="wrapper wrapper-full-page">
+    <nav class="navbar navbar-primary navbar-transparent navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/dashboard">Cajero Automatico - Bonos Universidad Simon Bolivar</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="full-page login-page" filter-color="black" data-image="../../../assets/img/loginSimon.jpg" >
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                            <div class="card card-login card-hidden">
+                                <div class="card-header text-center" data-background-color="green">
+                                    <h4 class="card-title">Login</h4>
+                                    
+                                </div>
+                                <div class="card-content">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Tipo Usuario</label>
+                                            <select name="idRolU" 
+                                                    id="idRolU"
+                                                    class="form-control"
+                                                    [(ngModel)]="idRol">
+                                                <option *ngFor="let iter of listTipeUser" 
+                                                        [value]="iter.id">{{iter.name}}</option>    
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Nick</label>
+                                            <input type="text" class="form-control"
+                                                 name="user"
+                                                   [(ngModel)]="user">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock_outline</i>
+                                        </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Contraseña</label>
+                                            <input type="password" class="form-control"
+                                                    name="pass"
+                                                   [(ngModel)]="pass">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer text-center">
+                                    <button class="btn btn-rose btn-simple btn-wd btn-lg" 
+                                            (click)="login()">Iniciar Sesión</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="copyright pull-right">
+                    &copy;
+                    {{test | date: 'yyyy'}}
+                    Creada por Marcos Manotas Solano
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
