@@ -1,6 +1,6 @@
-# Prueba Tecnica Cajero automatico PEIA
+# Prueba Tecnica Cajero automatico PEIA - Repositorio FrontEnd
 
-Este repocitorio contiene codigo fuente el front end de la implementacion e un cajero electronico virtual.
+Este repocitorio contiene codigo fuente del frontend de la implementaciòn de un cajero electronico virtual.
 
 ## Requerimiento
 
